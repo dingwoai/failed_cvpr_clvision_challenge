@@ -27,6 +27,7 @@ import os
 import psutil
 import shutil
 
+import random
 
 def shuffle_in_unison(dataset, seed, in_place=False):
     """
@@ -55,6 +56,34 @@ def shuffle_in_unison(dataset, seed, in_place=False):
 
     if not in_place:
         return new_dataset
+
+
+def shuffle_in_unison_siamese(x, y, seed=0):
+    # np.random.seed(seed)
+    x0_new, x1_new, y_orig0, y_orig1, y_new = [], [], [], [], []
+    for i, xx in enumerate(x):
+        yy = y[i]
+        #we need to make sure approx 50% of images are in the same class
+        should_get_same_class = random.randint(0,1)
+        if should_get_same_class:
+            while True:
+                #keep looping till the same class image is found
+                i = random.choice(range(len(y)))
+                if yy==y[i]:
+                    y_new.append(0)
+                    break
+        else:
+            while True:
+                #keep looping till a different class image is found
+                i = random.choice(range(len(y)))
+                if yy!=y[i]:
+                    y_new.append(1)
+                    break
+        x0_new.append(xx)
+        x1_new.append(x[i])
+        y_orig0.append(yy)
+        y_orig1.append(y[i])
+    return np.array(x0_new), np.array(x1_new), np.array(y_orig0), np.array(y_orig1), np.array(y_new)
 
 
 def pad_data(dataset, mb_size):

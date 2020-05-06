@@ -1,3 +1,22 @@
+# This is a fork from original repository of [CVPR 2020 CLVision Challenge](https://github.com/vlomonaco/cvpr_clvision_challenge)
+
+What I have managed to experiment in this repo is the followings:
+
+- [x] Better backbone networks generally produce better results
+- [x] Choice of head classifier：logistic regression is clearly better than nearest-neighbour
+- [x] Memory replay: the more you sample from last tasks, the better your model can be trained
+- [x] Data augmentation helps
+- [x] Knowledge distill: by adding an extra distillation loss
+
+What I tried but works slightly better or slightly worse **for me** in this challenge:  
+- [x] Early stopping
+- [x] Freeze some layers before training
+- [x] MRCL: with some code borrowed from [this repo](https://github.com/khurramjaved96/mrcl)
+- [x] Metric learning: with siamese network trying to learn better representation
+- [x] Regularization methods: L2, online/offline EWC, SI
+
+In the future, I will try updating other experiments done by other researchers in this challenge.
+
 # CVPR 2020 CLVision Challenge
 
 This is the official starting repository for the **CVPR 2020 CLVision 

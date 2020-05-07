@@ -373,7 +373,7 @@ if __name__ == "__main__":
                         help='batch_size')
     parser.add_argument('--epochs', type=int, default=1,
                         help='number of epochs')
-    parser.add_argument('--aug', type=bool, default=False,
+    parser.add_argument('--aug', action='store_true', default=False,
                         help='whether to use train data augmentation')
     parser.add_argument('--resize_shape', type=int, default=128,
                         help='shape to be resized, eg. 128 224 256')
@@ -381,7 +381,7 @@ if __name__ == "__main__":
     # Continual Learning
     parser.add_argument('--regularize_mode', type=str, default=None,
                         choices=['L2', 'EWC', 'SI'])
-    parser.add_argument('--icarl', type=bool, default=False)
+    parser.add_argument('--icarl', action='store_true', default=False)
     parser.add_argument('--replay_examples', type=int, default=0,
                         help='data examples to keep in memory for each batch '
                              'for replay.')

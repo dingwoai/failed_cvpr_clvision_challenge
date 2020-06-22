@@ -1,5 +1,15 @@
 # This is a fork from original repository of [CVPR 2020 CLVision Challenge](https://github.com/vlomonaco/cvpr_clvision_challenge)
 
+The introduction of winning solutions can be found [here](https://www.youtube.com/watch?v=AbgbzTDZRq8&t=88s), congrats!
+
+In general, the following tricks are important for winning:
+- fine-tune pretrained model
+- memory replay
+- data augmentation
+- training strategy: freeze & unfreeze, representation loss, hyperparameter tuning etc.
+
+It is worth noting that although in this repo we use some same tricks with winning solutions, the details may differ (which results different).
+
 What I have managed to experiment in this repo is the followings:
 
 - [x] Better backbone networks generally produce better results
